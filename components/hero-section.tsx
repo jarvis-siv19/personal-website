@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import dynamic from "next/dynamic"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail, FileText } from "lucide-react"
 import { Terminal } from "./terminal"
 import type { Project } from "@/lib/projects"
 
@@ -66,7 +66,9 @@ export function HeroSection({ projects }: { projects: Project[] }) {
 
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700 text-white" asChild>
-              <a href="#contact">Get In Touch</a>
+              <a href="/resume.pdf" download="Sivaganesh_Resume.pdf">
+                <FileText className="mr-2 h-4 w-4" /> Download Resume
+              </a>
             </Button>
             <Button
               size="lg"

@@ -8,7 +8,7 @@
 
 ## ✨ Features
 
-- **Hero** — WebGL particle backdrop (three.js) + a fully **interactive terminal**: type commands with autosuggest, Tab-completion, and history (`help`, `projects`, `cat <slug>`, `open <slug>`, `goto`, `contact`, …)
+- **Hero** — WebGL particle backdrop (three.js) + a fully **interactive terminal**: type commands with autosuggest, Tab-completion, and history (`help`, `projects`, `cat <slug>`, `open <slug>`, `goto`, `contact`, `resume`, …)
 - **Projects** — Main builds pinned first, then other projects. Cards auto-synced from GitHub (stars, language, last-commit, topics) with static posters and CSS-3D tilt, no live iframes. No external backend — all automation lives in this repo.
 - **About** — Education, experience summary, IEEE publications, and areas of expertise, with hover 3D tilt
 - **Work Experience** — Glowing animated timeline with achievements and tech badges (Aayvu, Visa, MIT, Citicorp, Bauble)

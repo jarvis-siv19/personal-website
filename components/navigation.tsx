@@ -43,7 +43,7 @@ export function Navigation() {
               </a>
             ))}
             <Button className="bg-cyan-600 hover:bg-cyan-700" asChild>
-              <a href="#contact">Get In Touch</a>
+              <a href="/resume.pdf" download="Sivaganesh_Resume.pdf">Resume</a>
             </Button>
           </div>
 
@@ -72,7 +72,7 @@ export function Navigation() {
               </a>
             ))}
             <Button className="bg-cyan-600 hover:bg-cyan-700 w-full" asChild>
-              <a href="#contact">Get In Touch</a>
+              <a href="/resume.pdf" download="Sivaganesh_Resume.pdf">Resume</a>
             </Button>
           </div>
         )}

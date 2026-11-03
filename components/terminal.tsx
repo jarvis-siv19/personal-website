@@ -41,6 +41,7 @@ const COMMANDS: Record<string, string> = {
   open: "open a project in a new tab  →  open <slug>",
   goto: "jump to a section  →  goto projects",
   contact: "contact info",
+  resume: "download resume",
   socials: "links",
   clear: "clear the screen",
 }
@@ -163,6 +164,16 @@ export function Terminal({ projects }: { projects: Project[] }) {
           buf.push(<span className={OK}>→ {arg}</span>)
         } else {
           buf.push(<span className={WARN}>goto: unknown section &apos;{arg}&apos; (about, experience, projects, skills, contact)</span>)
+        }
+        break
+      }
+      case "resume": {
+        buf.push(<span className={OK}>↓ downloading Sivaganesh_Resume.pdf…</span>)
+        if (typeof document !== "undefined") {
+          const a = document.createElement("a")
+          a.href = "/resume.pdf"
+          a.download = "Sivaganesh_Resume.pdf"
+          a.click()
         }
         break
       }
