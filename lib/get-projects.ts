@@ -31,7 +31,7 @@ export async function getProjects(): Promise<Project[]> {
           tags: (seed.fallbackTags ?? []).slice(0, 6),
           pushedAt: null,
           ogImage: "/favicon.svg",
-          previewMode: "image",
+          previewMode: seed.demo ? "iframe" : "image",
         }
       }
       const name = seed.repo.split("/")[1] ?? seed.repo
@@ -60,7 +60,7 @@ export async function getProjects(): Promise<Project[]> {
         tags: tags.slice(0, 6),
         pushedAt,
         ogImage: `https://opengraph.githubassets.com/${ogHash}/${seed.repo}`,
-        previewMode: "image",
+        previewMode: demo ? "iframe" : "image",
       }
     }),
   )

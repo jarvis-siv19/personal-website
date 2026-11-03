@@ -9,7 +9,7 @@
 ## ✨ Features
 
 - **Hero** — WebGL particle backdrop (three.js) + a fully **interactive terminal**: type commands with autosuggest, Tab-completion, and history (`help`, `projects`, `cat <slug>`, `open <slug>`, `goto`, `contact`, `resume`, …)
-- **Projects** — Main builds pinned first, then other projects. Cards auto-synced from GitHub (stars, language, last-commit, topics) with static posters and CSS-3D tilt, no live iframes. No external backend — all automation lives in this repo.
+- **Projects** — Main builds pinned first, then other projects. Cards auto-synced from GitHub (stars, language, last-commit, topics) with live iframe previews for projects with a demo URL and CSS-3D tilt. Main cards link only to their demo URL, never to GitHub. No external backend — all automation lives in this repo.
 - **About** — Education, experience summary, IEEE publications, and areas of expertise, with hover 3D tilt
 - **Work Experience** — Glowing animated timeline with achievements and tech badges (Aayvu, Visa, MIT, Citicorp, Bauble)
 - **Tech Stack** — 6-category skill grid with proficiency indicators (Strong / Comfortable / Familiar)
@@ -72,7 +72,7 @@ Open [http://localhost:3000](http://localhost:3000).
 │   ├── hero-section.tsx     # Hero: WebGL backdrop + interactive terminal
 │   ├── hero-backdrop.tsx    # three.js / react-three-fiber particle scene
 │   ├── terminal.tsx         # Interactive terminal (commands, autosuggest, history)
-│   ├── project-card.tsx     # 3D tilt card + static poster
+│   ├── project-card.tsx     # 3D tilt card + live iframe preview
 │   ├── tilt-card.tsx        # Reusable pointer-tilt wrapper
 │   ├── about-section.tsx    # Education, experience, publications
 │   ├── experience-section.tsx

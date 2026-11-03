@@ -9,8 +9,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold text-center mb-4 text-slate-100">Projects</h2>
         <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
-          Main builds are pinned first. Other projects refresh from GitHub automatically, stars, languages,
-          and last-commit dates included. Click a card to open the live site or its code.
+          Main builds are pinned first and link only to their live sites: aayvu.io, media-verse.in, cclip.cc, splitllm.com. Other projects use their repo homepage URL when one exists. Click a card to open the live site, or its code when there is no live URL.
         </p>
 
         {projects.length === 0 ? (

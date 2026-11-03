@@ -18,7 +18,7 @@ export interface ProjectSeed {
   /** live-demo URL override (defaults to the repo's GitHub homepage field) */
   demo?: string | null
   /** how the preview thumbnail renders */
-  previewMode?: "image"
+  previewMode?: "iframe" | "image"
   /** used only if GitHub is unreachable */
   fallbackDescription?: string
   fallbackTags?: string[]
@@ -39,7 +39,7 @@ export interface Project {
   tags: string[]
   pushedAt: string | null
   ogImage: string
-  previewMode: "image"
+  previewMode: "iframe" | "image"
 }
 
 // Main builds first, in this order, then other builds.
