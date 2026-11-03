@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@iconify/react": "^6.0.4",
     "@radix-ui/react-slot": "1.1.1",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",

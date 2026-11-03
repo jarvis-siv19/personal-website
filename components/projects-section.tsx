@@ -9,7 +9,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold text-center mb-4 text-slate-100">Projects</h2>
         <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
-          Main builds are pinned first and link only to their live sites: aayvu.io, media-verse.in, cclip.cc, splitllm.com. Other projects use their repo homepage URL when one exists. Click a card to open the live site, or its code when there is no live URL.
+          Main builds are pinned first and link only to their live sites: aayvu.io, media-verse.in, cclip.cc, splitllm.com. Each preview is fetched from the live site itself. Other projects use their repo homepage URL when one exists. Click a card to open the live site, or its code when there is no live URL.
         </p>
 
         {projects.length === 0 ? (
@@ -22,13 +22,13 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
         ) : (
           <>
             <h3 className="text-2xl font-bold text-slate-100 mb-6">Main builds</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16" style={{ perspective: "1200px" }}>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
               {main.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}
             </div>
             <h3 className="text-2xl font-bold text-slate-100 mb-6">Other projects</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" style={{ perspective: "1200px" }}>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {other.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}

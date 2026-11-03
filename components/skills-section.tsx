@@ -1,5 +1,6 @@
 "use client"
 
+import { Icon } from "@iconify/react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -11,6 +12,44 @@ import {
   Activity
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+
+// Iconify logo icons, from iconify.design. Skills without a logo here
+// keep their text-only badge, so a missing icon never breaks a badge.
+const SKILL_ICONS: Record<string, string> = {
+  Java: "logos:java",
+  Python: "logos:python",
+  TypeScript: "logos:typescript-icon",
+  JavaScript: "logos:javascript",
+  Go: "logos:go",
+  "C++": "logos:c-plusplus",
+  C: "logos:c",
+  GCP: "logos:google-cloud",
+  AWS: "logos:aws",
+  MySQL: "logos:mysql",
+  MongoDB: "logos:mongodb-icon",
+  Firebase: "logos:firebase",
+  Vercel: "logos:vercel-icon",
+  PostgreSQL: "logos:postgresql",
+  React: "logos:react",
+  "Next.js": "logos:nextjs-icon",
+  Redux: "logos:redux",
+  "Tailwind CSS": "logos:tailwindcss-icon",
+  HTML: "logos:html-5",
+  CSS: "logos:css-3",
+  Angular: "logos:angular-icon",
+  "Spring Boot": "logos:spring-icon",
+  Flask: "logos:flask",
+  "Node.js": "logos:nodejs-icon",
+  GraphQL: "logos:graphql",
+  FastAPI: "logos:fastapi-icon",
+  Docker: "logos:docker-icon",
+  Jenkins: "logos:jenkins",
+  Kubernetes: "logos:kubernetes",
+  Git: "logos:git-icon",
+  Jest: "logos:jest",
+  Prometheus: "logos:prometheus",
+  Grafana: "logos:grafana",
+}
 
 type SkillLevel = "Strong" | "Comfortable" | "Familiar"
 
@@ -171,12 +210,15 @@ export function SkillsSection() {
                       key={skill.name}
                       variant="outline"
                       className={cn(
-                        "transition-all duration-300 cursor-default px-3 py-1.5 text-sm",
+                        "transition-all duration-300 cursor-default px-3 py-1.5 text-sm flex items-center gap-1.5",
                         skill.level === "Strong" && "bg-slate-800/80 border-slate-700 text-slate-200 hover:scale-105 hover:bg-slate-800 hover:shadow-[0_0_12px_-3px_rgba(255,255,255,0.1)]",
                         skill.level === "Comfortable" && "bg-transparent border-slate-700 text-slate-300 hover:scale-105 hover:border-slate-600 hover:bg-slate-800/30",
                         skill.level === "Familiar" && "bg-slate-900/50 border-transparent text-slate-500 hover:text-slate-400 hover:bg-slate-900"
                       )}
                     >
+                      {SKILL_ICONS[skill.name] && (
+                        <Icon icon={SKILL_ICONS[skill.name]} width={16} height={16} aria-hidden="true" />
+                      )}
                       {skill.name}
                     </Badge>
                   ))}

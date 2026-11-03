@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { TiltCard } from "@/components/tilt-card"
 
 interface Achievement {
   text: string
@@ -35,33 +34,20 @@ export function ExperienceSection() {
       period: "Jun 2022 - Jul 2025",
       location: "Bangalore, India",
       achievements: [
-        "Led end-to-end development of a Data Subject Rights (DSR) application enabling secure customer data access, modification, and deletion using a microservices architecture built with React, Java, Spring Boot, and MySQL.",
-        "Contributed to developing a PII tracking portal using React, Redux, TypeScript, and Node.js, achieving 85% UI test coverage with React Testing Library (RTL) and ensuring full accessibility compliance (VGAR).",
-        "Migrated a legacy Spring backend with direct JDBC queries to a Spring Boot microservices architecture using JPA/Hibernate, Spring Security, Spring Actuator, and REST APIs, improving scalability, observability, and security.",
-        "Developed unit, integration, and functional tests using JUnit and Mockito, achieving 85%+ backend code coverage and ensuring high reliability and maintainability.",
-        "Led a low-downtime migration of MySQL from a legacy non-normalized database, redesigning schemas with normalization, stored procedures, triggers, views, and optimized indexing strategies.",
-        "Developed scheduled jobs integrating OneTrust APIs and LDAP to automate data synchronization, user lifecycle updates, stale account detection, reminder notifications, and escalation workflows.",
-        "Migrated encrypted DSR files from MySQL to AWS S3 to improve durability, performance, and archival efficiency.",
-        "Set up and maintained DRUM infrastructure, deployed applications to JBoss Web Server (JWS), and implemented automated CI/CD pipelines using Jenkins, Artifactory, and RPM packaging.",
-        "Configured QA, pre-production, and production environments (including secondary data center) with dedicated backend/frontend servers, reverse proxy servers, LTM/GTM load balancers, and Cloudflare integration for secure and scalable access."
+        "Led a Data Subject Rights app (React, Java, Spring Boot, MySQL) for secure customer data access, modification, and deletion.",
+        "Built a PII tracking portal (React, Redux, TypeScript, Node.js) with 85% UI test coverage and full VGAR accessibility compliance.",
+        "Migrated a legacy Spring/JDBC backend to Spring Boot microservices and encrypted files from MySQL to AWS S3, improving scalability and durability.",
+        "Automated data sync and lifecycle workflows via OneTrust APIs and LDAP, with Jenkins CI/CD across QA, pre-production, and production.",
       ],
       technologies: [
         "Java",
         "Spring Boot",
-        "Spring Security",
-        "JPA/Hibernate",
         "React",
-        "Redux",
         "TypeScript",
         "Node.js",
         "MySQL",
         "AWS S3",
         "Jenkins",
-        "Artifactory",
-        "JUnit",
-        "Mockito",
-        "JBoss Web Server",
-        "Cloudflare"
       ],
     },
     {
@@ -70,8 +56,8 @@ export function ExperienceSection() {
       period: "Jun 2020 - Apr 2022",
       location: "Chennai, India",
       achievements: [
-        "Led a 6-member team to build a full-stack departmental portal using Angular, Node.js, GraphQL, and MySQL, delivering modules for academic management, placements, research, and an anonymous student feedback system.",
-        "Optimized backend deployments by containerizing and scaling multiple backend services with PM2 on a single server, resulting in higher availability, efficient query resolution, and reduced downtime during updates.",
+        "Led a 6-member team building a departmental portal (Angular, Node.js, GraphQL, MySQL) for academics, placements, research, and anonymous student feedback.",
+        "Scaled backend services with PM2, improving availability and reducing downtime during updates.",
       ],
       technologies: ["Angular", "Node.js", "GraphQL", "MySQL", "PM2"],
     },
@@ -81,10 +67,9 @@ export function ExperienceSection() {
       period: "May 2021 - Jul 2021",
       location: "Chennai, India",
       achievements: [
-        "Built a Java dashboard to visualize release metrics with real-time filtering and analytics.",
-        "Implemented JUnit tests (80% coverage) and designed backend components using OOP and data structures.",
+        "Built a Java dashboard for release metrics with real-time filtering, with JUnit tests at 80% coverage.",
       ],
-      technologies: ["Java", "JUnit", "OOP", "Data Structures"],
+      technologies: ["Java", "JUnit"],
     },
     {
       company: "Bauble",
@@ -92,11 +77,10 @@ export function ExperienceSection() {
       period: "Jul 2020 - Jan 2021",
       location: "Remote",
       achievements: [
-        "Co-founded and scaled an EdTech platform connecting 150+ students with resources and alumni mentorship",
-        "Architected the full-stack web portal using React and Python, driving 40% user retention",
-        "Developed predictive algorithms for university counseling, improving placement accuracy by 35%",
+        "Co-founded an EdTech platform connecting 150+ students with resources and alumni mentorship.",
+        "Built the full-stack portal (React, Python) at 40% user retention, with counseling algorithms improving placement accuracy by 35%.",
       ],
-      technologies: ["Javascript", "Python", "Data Analytics", "Web Scraping", "Automation"],
+      technologies: ["JavaScript", "Python", "Data Analytics"],
     }
   ]
 
@@ -109,7 +93,6 @@ export function ExperienceSection() {
           {experiences.map((exp, index) => (
             <div key={index} className="relative mb-8 last:mb-0">
               <span className="timeline-node hidden md:block" aria-hidden="true" />
-              <TiltCard max={4}>
               <Card
                 className="bg-slate-900/50 border-cyan-500/30 p-8 backdrop-blur-sm hover:border-cyan-400/50 transition-all h-full"
               >
@@ -152,7 +135,6 @@ export function ExperienceSection() {
                 ))}
               </div>
               </Card>
-              </TiltCard>
             </div>
           ))}
         </div>
