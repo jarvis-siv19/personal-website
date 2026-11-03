@@ -61,7 +61,18 @@ export function Terminal({ projects }: { projects: Project[] }) {
   const keyer = useRef(0)
   const nextKey = () => keyer.current++
 
-  const bySlug = useMemo(() => new Map(projects.map((p) => [p.slug, p])), [projects])
+  // Accept both the repo slug and the display title as an argument, so
+  // "open mediaverse" works even though its repo slug is movies-tracker.
+  const bySlug = useMemo(
+    () =>
+      new Map(
+        projects.flatMap((p) => [
+          [p.slug, p],
+          [p.title.toLowerCase().replace(/[^a-z0-9]+/g, ""), p],
+        ]),
+      ),
+    [projects],
+  )
 
   const emit = (nodes: Line[]) => setLines((prev) => [...prev, ...nodes.map((n) => <div key={nextKey()} className="whitespace-pre-wrap break-words leading-relaxed">{n}</div>)])
 
@@ -96,7 +107,7 @@ export function Terminal({ projects }: { projects: Project[] }) {
         Object.entries(COMMANDS).forEach(([k, v]) =>
           buf.push(<span>{"  "}<span className={K}>{k.padEnd(11)}</span><span className={MUT}>{v}</span></span>),
         )
-        buf.push(<span className={MUT}>tip: <span className={OK}>Tab</span> completes · <span className={OK}>↑/↓</span> history</span>)
+        buf.push(<span className={MUT}>tip: <span className={OK}>Tab</span> cycles suggestions · <span className={OK}>↑/↓</span> history · try <span className={OK}>open</span> then Tab</span>)
         break
       case "whoami":
         buf.push(<span><span className={VAL}>sivaganesh-balaganesh</span> · Co-founder, Aayvu · MS CS @ Purdue</span>)
@@ -209,6 +220,20 @@ export function Terminal({ projects }: { projects: Project[] }) {
   }
 
   // ---- autosuggest ----
+  // Suggestions are always runnable commands, not just command names.
+  // Typing "open" (with or without the trailing space) immediately lists
+  // every project that can be opened, and typing a fragment like "aay"
+  // or "verse" matches slugs by substring too, so Tab can complete it.
+  function projectSuggestions(command: string, filter: string) {
+    const f = filter.toLowerCase()
+    const matched = projects.filter((p) => {
+      if (!f) return true
+      const title = p.title.toLowerCase().replace(/[^a-z0-9]+/g, "")
+      return p.slug.startsWith(f) || p.slug.includes(f) || title.startsWith(f) || title.includes(f)
+    })
+    return matched.slice(0, 8).map((p) => ({ label: p.slug, full: `${command} ${p.slug}` }))
+  }
+
   function rebuildSuggestions(v: string) {
     const trimmed = v.trim()
     const parts = trimmed.split(/\s+/)
@@ -220,14 +245,11 @@ export function Terminal({ projects }: { projects: Project[] }) {
         { label: `open ${projects[0]?.slug ?? ""}`, full: `open ${projects[0]?.slug ?? ""}` },
         { label: "skills backend", full: "skills backend" },
       ]
-    } else if (parts.length === 1) {
-      const pool = [...Object.keys(COMMANDS), ...Object.keys(ALIASES)]
-      out = pool.filter((k) => k.startsWith(parts[0].toLowerCase())).slice(0, 6).map((k) => ({ label: k, full: k + " " }))
     } else if (["cat", "open", "info"].includes(parts[0].toLowerCase())) {
-      out = projects
-        .map((p) => p.slug)
-        .filter((s) => s.startsWith((parts[1] ?? "").toLowerCase()))
-        .map((s) => ({ label: s, full: `${parts[0]} ${s}` }))
+      // Exact command, with or without an argument yet: list openable
+      // projects, filtered by whatever argument fragment was typed.
+      const arg = parts.slice(1).join(" ").toLowerCase()
+      out = projectSuggestions(parts[0].toLowerCase(), arg)
     } else if (parts[0].toLowerCase() === "goto") {
       out = ["about", "experience", "projects", "skills", "contact", "top"]
         .filter((s) => s.startsWith((parts[1] ?? "").toLowerCase()))
@@ -236,6 +258,35 @@ export function Terminal({ projects }: { projects: Project[] }) {
       out = Object.keys(SKILLS)
         .filter((s) => s.startsWith((parts[1] ?? "").toLowerCase()))
         .map((s) => ({ label: s, full: `skills ${s}` }))
+    } else {
+      // Partial command or fragment: command completions first, then
+      // openable projects. "ope" / "open" both surface open <slug> rows,
+      // and "aay" / "verse" surface the matching project directly.
+      const cmd = parts[0].toLowerCase()
+      const pool = [...Object.keys(COMMANDS), ...Object.keys(ALIASES)]
+      const seen = new Set<string>()
+      const push = (s: { label: string; full: string }) => {
+        if (!seen.has(s.full)) {
+          seen.add(s.full)
+          out.push(s)
+        }
+      }
+      if ("open".startsWith(cmd)) projectSuggestions("open", "").forEach(push)
+      if ("cat".startsWith(cmd)) projectSuggestions("cat", "").forEach(push)
+      pool
+        .filter((k) => k.startsWith(cmd))
+        .slice(0, 6)
+        .forEach((k) => push({ label: k, full: k + " " }))
+      if (cmd.length >= 2) {
+        projects
+          .filter((p) => {
+            const title = p.title.toLowerCase().replace(/[^a-z0-9]+/g, "")
+            return p.slug.startsWith(cmd) || p.slug.includes(cmd) || title.startsWith(cmd) || title.includes(cmd)
+          })
+          .slice(0, 4)
+          .forEach((p) => push({ label: `open ${p.slug}`, full: `open ${p.slug}` }))
+      }
+      out = out.slice(0, 8)
     }
     setSuggestions(out)
     setSugIdx(-1)
@@ -259,9 +310,20 @@ export function Terminal({ projects }: { projects: Project[] }) {
     } else if (e.key === "Tab") {
       e.preventDefault()
       if (suggestions.length) {
-        const next = (sugIdx + 1) % suggestions.length
+        // Cycle through the current suggestion list. Shift+Tab goes back.
+        const dir = e.shiftKey ? -1 : 1
+        const next = (sugIdx + dir + suggestions.length) % suggestions.length
+        const chosen = suggestions[next]
         setSugIdx(next)
-        setValue(suggestions[next].full)
+        setValue(chosen.full)
+        if (chosen.full.endsWith(" ")) {
+          // Command only (e.g. "open "): expand to its argument list so
+          // the next Tab cycles through projects, not the same command.
+          rebuildSuggestions(chosen.full)
+        }
+        // Otherwise the chosen text is a complete command (e.g.
+        // "open aayvu"): keep the same suggestion list, so the next Tab
+        // moves to the next project instead of collapsing to one row.
       }
     } else if (e.key === "ArrowUp") {
       e.preventDefault()
@@ -366,7 +428,7 @@ export function Terminal({ projects }: { projects: Project[] }) {
 
         {ready && suggestions.length > 0 && (
           <div className="flex flex-wrap gap-1.5 pt-2.5">
-            <span className="text-slate-600 text-xs self-center mr-1">try:</span>
+            <span className="text-slate-600 text-xs self-center mr-1">Tab ↹:</span>
             {suggestions.map((s, i) => (
               <button
                 key={s.full}
