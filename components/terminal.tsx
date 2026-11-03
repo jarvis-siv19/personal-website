@@ -23,7 +23,8 @@ const SKILLS: Record<string, string> = {
 }
 
 const EXPERIENCE: [string, string, string][] = [
-  ["Visa Inc.", "Senior Software Engineer", "2022–2025"],
+  ["Aayvu", "Co-founder", "2026–present"],
+  ["Visa Inc.", "SWE, then Senior SWE", "2022–2025"],
   ["Citicorp", "Software Developer Intern", "2021"],
   ["Bauble", "Head of Technology", "2020–2021"],
 ]
@@ -39,7 +40,7 @@ const COMMANDS: Record<string, string> = {
   cat: "project details  →  cat <slug>",
   open: "open a project in a new tab  →  open <slug>",
   goto: "jump to a section  →  goto projects",
-  resume: "download resume",
+  contact: "contact info",
   socials: "links",
   clear: "clear the screen",
 }
@@ -97,11 +98,11 @@ export function Terminal({ projects }: { projects: Project[] }) {
         buf.push(<span className={MUT}>tip: <span className={OK}>Tab</span> completes · <span className={OK}>↑/↓</span> history</span>)
         break
       case "whoami":
-        buf.push(<span><span className={VAL}>sivaganesh-balaganesh</span> · MS CS @ Purdue · ex-Visa Senior SWE</span>)
+        buf.push(<span><span className={VAL}>sivaganesh-balaganesh</span> · Co-founder, Aayvu · MS CS @ Purdue</span>)
         break
       case "about":
-        buf.push(<span className={VAL}>Full-stack &amp; data engineer.</span>)
-        buf.push(<span>I build scalable systems and data platforms. Seeking <span className={WARN}>Summer 2026</span> internships.</span>)
+        buf.push(<span className={VAL}>Co-founder at Aayvu. Full-stack &amp; data engineer.</span>)
+        buf.push(<span>I build Aayvu, MediaVerse, CloudClip, and SplitLLM.</span>)
         break
       case "skills":
         if (arg && SKILLS[arg]) buf.push(<span><span className={K}>{arg}:</span> <span className={VAL}>{SKILLS[arg]}</span></span>)
@@ -165,19 +166,14 @@ export function Terminal({ projects }: { projects: Project[] }) {
         }
         break
       }
-      case "resume": {
-        buf.push(<span className={OK}>↓ downloading Sivaganesh_Resume.pdf…</span>)
-        if (typeof document !== "undefined") {
-          const a = document.createElement("a")
-          a.href = "/resume.pdf"
-          a.download = "Sivaganesh_Resume.pdf"
-          a.click()
-        }
+      case "contact": {
+        buf.push(<span><span className={K}>email   </span><a className="underline" href="mailto:contact@siv19.dev">contact@siv19.dev</a></span>)
+        buf.push(<span><span className={K}>linkedin</span> <a className="underline" href="https://www.linkedin.com/in/sivab193/" target="_blank" rel="noopener noreferrer">in/sivab193</a></span>)
         break
       }
       case "socials":
         buf.push(<span><span className={K}>github  </span><a className="underline" href="https://github.com/sivab193" target="_blank" rel="noopener noreferrer">github.com/sivab193</a></span>)
-        buf.push(<span><span className={K}>linkedin</span> <a className="underline" href="https://www.linkedin.com/in/sivaganesh-balaganesh/" target="_blank" rel="noopener noreferrer">in/sivaganesh-balaganesh</a></span>)
+        buf.push(<span><span className={K}>linkedin</span> <a className="underline" href="https://www.linkedin.com/in/sivab193/" target="_blank" rel="noopener noreferrer">in/sivab193</a></span>)
         buf.push(<span><span className={K}>email   </span><a className="underline" href="mailto:contact@siv19.dev">contact@siv19.dev</a></span>)
         break
       case "clear":
@@ -293,9 +289,9 @@ export function Terminal({ projects }: { projects: Project[] }) {
     const steps: Line[] = [
       <span className={MUT}># booting siv@portfolio · type <span className={K}>help</span> to explore</span>,
       promptEcho("whoami"),
-      <span><span className={VAL}>sivaganesh-balaganesh</span> · MS CS @ Purdue · ex-Visa Senior SWE</span>,
+      <span><span className={VAL}>sivaganesh-balaganesh</span> · Co-founder, Aayvu · MS CS @ Purdue</span>,
       promptEcho("cat current_status.txt"),
-      <span className={WARN}>▸ Seeking Summer 2026 Internship</span>,
+      <span className={OK}>▸ Building Aayvu</span>,
     ]
     if (reduce) {
       emit(steps)

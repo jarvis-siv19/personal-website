@@ -7,9 +7,9 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Sivaganesh B - Software Engineer",
+  title: "Sivaganesh B - Co-founder, Aayvu",
   description:
-    "Personal portfolio of Sivaganesh Balaganesh - Full-Stack & Data Engineer seeking Summer 2026 internships",
+    "Personal portfolio of Sivaganesh Balaganesh - Co-founder at Aayvu, building Aayvu, MediaVerse, CloudClip, and SplitLLM. MS Computer Science at Purdue, previously at Visa.",
   icons: {
     icon: "/favicon.svg",
   },

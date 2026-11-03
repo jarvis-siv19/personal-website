@@ -35,14 +35,19 @@ export function AboutSection() {
             <h3 className="text-xl font-bold text-slate-100 mb-2">Experience</h3>
             <div className="space-y-3 text-slate-300">
               <div>
+                <p className="font-semibold">Aayvu</p>
+                <p className="text-sm">Co-founder</p>
+                <p className="text-sm text-slate-400">Aug 2026 - Present</p>
+              </div>
+              <div>
                 <p className="font-semibold">Visa Inc.</p>
-                <p className="text-sm">Senior Software Engineer</p>
-                <p className="text-sm text-slate-400">Jul 2022 - Jul 2025</p>
+                <p className="text-sm">Software Engineer, then Senior Software Engineer</p>
+                <p className="text-sm text-slate-400">Jun 2022 - Jul 2025</p>
               </div>
               <div>
                 <p className="font-semibold">Citicorp</p>
                 <p className="text-sm">Software Engineering Intern</p>
-                <p className="text-sm text-slate-400">Jan 2021 - Jun 2021</p>
+                <p className="text-sm text-slate-400">May 2021 - Jul 2021</p>
               </div>
               <div>
                 <p className="font-semibold">Data Centre, Madras Institute of Technology</p>
@@ -105,13 +110,11 @@ export function AboutSection() {
             <h3 className="text-2xl font-bold text-slate-100 mb-4">Professional Summary</h3>
             <div className="space-y-4 text-slate-300 leading-relaxed text-justify">
               <p>
-                I am a graduate student at Purdue University specializing in Computer Science, with a strong foundation in building scalable applications and data platforms.
-                My experience spans across fintech, edtech, and research, where I've delivered high-impact solutions using modern technologies.
-                At Visa, I led the development of a comprehensive data privacy platform that automated compliance
-                workflows and reduced manual effort by 80%. I architected data pipelines processing millions of records
-                daily and built real-time monitoring systems that improved operational efficiency by 40%.
-                My technical expertise includes Java, Python, C++, and Full Stack development with React and Node.js.
-                I am passionate about leveraging AI and Cloud technologies to solve complex problems and drive innovation.
+                I am a graduate student at Purdue University specializing in Computer Science, and Co-founder at Aayvu,
+                where I am building an AI-powered survey platform. Before that I worked at Visa on data privacy platforms,
+                and on edtech and research projects. My technical expertise includes TypeScript, Python, Java, and
+                full-stack development with React, Next.js, and Node.js. I am passionate about leveraging AI and cloud
+                technologies to solve complex problems and drive innovation.
               </p>
             </div>
           </Card>

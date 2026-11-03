@@ -43,7 +43,7 @@ export function SkillsSection() {
         { name: "C++", level: "Strong" },
         { name: "JavaScript", level: "Strong" },
         { name: "C", level: "Comfortable" },
-        { name: "PHP", level: "Comfortable" },
+        { name: "Go", level: "Comfortable" },
       ],
     },
     {
@@ -60,7 +60,7 @@ export function SkillsSection() {
         { name: "Firebase", level: "Strong" },
         { name: "Vercel", level: "Strong" },
         { name: "PostgreSQL", level: "Comfortable" },
-        { name: "Oracle", level: "Comfortable" },
+        { name: "Zoho Catalyst", level: "Comfortable" },
       ],
     },
     {
@@ -71,14 +71,12 @@ export function SkillsSection() {
       color: "text-purple-400",
       skills: [
         { name: "React", level: "Strong" },
-        { name: "Angular", level: "Strong" },
+        { name: "Next.js", level: "Strong" },
         { name: "Redux", level: "Strong" },
-        { name: "NgRx", level: "Strong" },
-        { name: "Expo", level: "Strong" },
+        { name: "Tailwind CSS", level: "Strong" },
         { name: "HTML", level: "Strong" },
         { name: "CSS", level: "Strong" },
-        { name: "Vue", level: "Comfortable" },
-        { name: "Bootstrap", level: "Comfortable" },
+        { name: "Angular", level: "Comfortable" },
       ],
     },
     {
@@ -93,8 +91,8 @@ export function SkillsSection() {
         { name: "Node.js", level: "Strong" },
         { name: "REST", level: "Strong" },
         { name: "GraphQL", level: "Strong" },
-        { name: "Django", level: "Comfortable" },
         { name: "FastAPI", level: "Comfortable" },
+        { name: "LLM APIs", level: "Comfortable" },
       ],
     },
     {
@@ -106,13 +104,9 @@ export function SkillsSection() {
       skills: [
         { name: "Docker", level: "Strong" },
         { name: "Jenkins", level: "Strong" },
-        { name: "SonarQube", level: "Strong" },
-        { name: "Checkmarx", level: "Strong" },
-        { name: "Kubernetes", level: "Strong" },
-        { name: "Maven", level: "Strong" },
-        { name: "Postman", level: "Strong" },
+        { name: "Kubernetes", level: "Comfortable" },
         { name: "Git", level: "Strong" },
-        { name: "Splunk", level: "Comfortable" },
+        { name: "Tailscale", level: "Comfortable" },
       ],
     },
     {
@@ -124,7 +118,6 @@ export function SkillsSection() {
       skills: [
         { name: "JUnit", level: "Strong" },
         { name: "PyTest", level: "Strong" },
-        { name: "Cypress", level: "Strong" },
         { name: "Jest", level: "Strong" },
         { name: "Prometheus", level: "Comfortable" },
         { name: "Grafana", level: "Comfortable" },

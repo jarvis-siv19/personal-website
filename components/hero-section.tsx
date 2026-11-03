@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import dynamic from "next/dynamic"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, FileText } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 import { Terminal } from "./terminal"
 import type { Project } from "@/lib/projects"
 
@@ -14,7 +14,7 @@ const HeroBackdrop = dynamic(() => import("./hero-backdrop"), { ssr: false })
 export function HeroSection({ projects }: { projects: Project[] }) {
   const [displayText, setDisplayText] = useState("")
   const [enable3d, setEnable3d] = useState(false)
-  const fullText = "Full Stack Developer"
+  const fullText = "Building Aayvu"
 
   useEffect(() => {
     let index = 0
@@ -60,15 +60,13 @@ export function HeroSection({ projects }: { projects: Project[] }) {
           </div>
 
           <p className="text-slate-300 text-lg leading-relaxed max-w-xl">
-            MS Computer Science student at Purdue University with expertise in Full Stack Development, Cloud Computing, and Machine Learning.
-            Previously Senior Software Engineer at Visa and SDE Intern at Citicorp.
+            Co-founder at Aayvu, building an AI-powered survey platform. MS Computer Science at Purdue.
+            Previously Software Engineer, then Senior Software Engineer, at Visa.
           </p>
 
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700 text-white" asChild>
-              <a href="/resume.pdf" download="Sivaganesh_Resume.pdf">
-                <FileText className="mr-2 h-4 w-4" /> Download Resume
-              </a>
+              <a href="#contact">Get In Touch</a>
             </Button>
             <Button
               size="lg"
@@ -91,7 +89,7 @@ export function HeroSection({ projects }: { projects: Project[] }) {
               <Github size={24} />
             </a>
             <a
-              href="https://www.linkedin.com/in/sivaganesh-balaganesh/"
+              href="https://www.linkedin.com/in/sivab193/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-cyan-400 transition-colors"

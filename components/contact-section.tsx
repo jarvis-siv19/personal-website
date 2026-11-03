@@ -10,7 +10,7 @@ export function ContactSection() {
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-4xl font-bold text-center mb-4 text-slate-100">Get In Touch</h2>
         <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
-          I'm currently seeking Summer 2026 internship opportunities in software engineering. Feel free to reach out if
+          Building Aayvu, MediaVerse, CloudClip, and SplitLLM. Feel free to reach out if
           you'd like to connect!
         </p>
 
@@ -29,7 +29,7 @@ export function ContactSection() {
                   </a>
                   <br />
                   <a
-                    href="mailto:siv@siv19.dev"
+                    href="mailto:contact@siv19.dev"
                     className="text-slate-400 hover:text-cyan-400 transition-colors"
                   >
                     contact@siv19.dev

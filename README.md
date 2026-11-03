@@ -1,6 +1,6 @@
 # siv19.dev — Personal Portfolio
 
-> Personal portfolio website for **Sivaganesh Balaganesh** — MS CS @ Purdue, ex-Visa Senior SWE.
+> Personal portfolio website for **Sivaganesh Balaganesh** — Co-founder at Aayvu, MS CS @ Purdue, previously at Visa.
 
 🔗 **Live:** [siv19.dev](https://siv19.dev)
 
@@ -8,10 +8,10 @@
 
 ## ✨ Features
 
-- **Hero** — WebGL particle backdrop (three.js) + a fully **interactive terminal**: type commands with autosuggest, Tab-completion, and history (`help`, `projects`, `cat <slug>`, `open <slug>`, `goto`, `resume`, …)
-- **Projects** — Cards auto-synced from GitHub (stars, language, last-commit, topics) with **live iframe previews** and CSS-3D tilt. No external backend — all automation lives in this repo.
+- **Hero** — WebGL particle backdrop (three.js) + a fully **interactive terminal**: type commands with autosuggest, Tab-completion, and history (`help`, `projects`, `cat <slug>`, `open <slug>`, `goto`, `contact`, …)
+- **Projects** — Main builds pinned first, then other projects. Cards auto-synced from GitHub (stars, language, last-commit, topics) with static posters and CSS-3D tilt, no live iframes. No external backend — all automation lives in this repo.
 - **About** — Education, experience summary, IEEE publications, and areas of expertise, with hover 3D tilt
-- **Work Experience** — Glowing animated timeline with achievements and tech badges (Visa, MIT, Citicorp, Bauble)
+- **Work Experience** — Glowing animated timeline with achievements and tech badges (Aayvu, Visa, MIT, Citicorp, Bauble)
 - **Tech Stack** — 6-category skill grid with proficiency indicators (Strong / Comfortable / Familiar)
 - **Contact** — Email, location, and social links (LinkedIn, GitHub, IEEE)
 - **Navigation** — Sticky header with mobile hamburger menu and smooth scroll
@@ -25,9 +25,11 @@ from the GitHub REST API in [`lib/github.ts`](lib/github.ts) and merged in
 [`lib/get-projects.ts`](lib/get-projects.ts). Data revalidates hourly via Next.js ISR,
 so cards update on their own without a redeploy.
 
-To add a project, add its `owner/repo` to `projectSeeds`. Set an optional
-`GITHUB_TOKEN` (see `.env.example`) to raise the GitHub API rate limit from 60/hr to
-5000/hr.
+To add a project, add one seed to `projectSeeds` in `lib/projects.ts`: `group: "main"`
+pins it first, in seed order; `group: "other"` follows by last push. Products with
+no public personal repo (Aayvu, SplitLLM) use `manual: true` with their own
+description and demo link. Set an optional `GITHUB_TOKEN` (see `.env.example`)
+to raise the GitHub API rate limit from 60/hr to 5000/hr.
 
 ## 🛠 Tech Stack
 
@@ -70,7 +72,7 @@ Open [http://localhost:3000](http://localhost:3000).
 │   ├── hero-section.tsx     # Hero: WebGL backdrop + interactive terminal
 │   ├── hero-backdrop.tsx    # three.js / react-three-fiber particle scene
 │   ├── terminal.tsx         # Interactive terminal (commands, autosuggest, history)
-│   ├── project-card.tsx     # 3D tilt card + live iframe preview
+│   ├── project-card.tsx     # 3D tilt card + static poster
 │   ├── tilt-card.tsx        # Reusable pointer-tilt wrapper
 │   ├── about-section.tsx    # Education, experience, publications
 │   ├── experience-section.tsx

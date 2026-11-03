@@ -19,8 +19,19 @@ interface Experience {
 export function ExperienceSection() {
   const experiences: Experience[] = [
     {
+      company: "Aayvu",
+      role: "Co-founder",
+      period: "Aug 2026 - Present",
+      location: "Remote",
+      achievements: [
+        "Building an AI-powered survey platform, deeper than SurveyMonkey: complex branching and automation under the hood, in the spirit of Qualtrics.",
+        "Working with AWS LLM APIs and other free-tier models, deployed on Zoho Catalyst.",
+      ],
+      technologies: ["Next.js", "AWS", "LLM APIs", "Zoho Catalyst"],
+    },
+    {
       company: "Visa Inc.",
-      role: "Senior Software Engineer",
+      role: "Software Engineer, then Senior Software Engineer",
       period: "Jun 2022 - Jul 2025",
       location: "Bangalore, India",
       achievements: [
