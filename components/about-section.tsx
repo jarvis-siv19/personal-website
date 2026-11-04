@@ -4,11 +4,11 @@ import { GraduationCap, Briefcase, Award } from "lucide-react"
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 px-4">
+    <section id="about" className="py-14 md:py-16 px-4 scroll-mt-24">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-slate-100">About Me</h2>
+        <h2 className="text-4xl font-bold text-center mb-8 text-slate-100">About Me</h2>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
           <TiltCard>
           <Card className="bg-slate-900/50 border-cyan-500/30 p-6 backdrop-blur-sm h-full">
             <GraduationCap className="w-12 h-12 text-cyan-400 mb-4" />
@@ -106,7 +106,7 @@ export function AboutSection() {
 
         <div className="grid md:grid-cols-2 gap-6">
           <TiltCard>
-          <Card className="bg-slate-900/50 border-cyan-500/30 p-8 backdrop-blur-sm h-full">
+          <Card className="bg-slate-900/50 border-cyan-500/30 p-6 backdrop-blur-sm h-full">
             <h3 className="text-2xl font-bold text-slate-100 mb-4">Professional Summary</h3>
             <div className="space-y-4 text-slate-300 leading-relaxed text-justify">
               <p>
@@ -121,9 +121,9 @@ export function AboutSection() {
           </TiltCard>
 
           <TiltCard>
-          <Card className="bg-slate-900/50 border-cyan-500/30 p-8 backdrop-blur-sm h-full">
-            <h3 className="text-2xl font-bold text-slate-100 mb-6">Areas of Expertise</h3>
-            <div className="space-y-6">
+          <Card className="bg-slate-900/50 border-cyan-500/30 p-6 backdrop-blur-sm h-full">
+            <h3 className="text-2xl font-bold text-slate-100 mb-4">Areas of Expertise</h3>
+            <div className="space-y-4">
               <div>
                 <h5 className="font-semibold text-cyan-400 mb-2">Full-Stack Development</h5>
                 <p className="text-slate-300">Building scalable web applications with modern frameworks and best practices</p>

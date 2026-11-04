@@ -85,16 +85,16 @@ export function ExperienceSection() {
   ]
 
   return (
-    <section id="experience" className="py-20 px-4 bg-slate-950/50">
+    <section id="experience" className="py-14 md:py-16 px-4 bg-slate-950/50 scroll-mt-24">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-slate-100">Work Experience</h2>
+        <h2 className="text-4xl font-bold text-center mb-8 text-slate-100">Work Experience</h2>
 
         <div className="max-w-4xl mx-auto md:pl-10 timeline-spine">
           {experiences.map((exp, index) => (
-            <div key={index} className="relative mb-8 last:mb-0">
+            <div key={index} className="relative mb-6 last:mb-0">
               <span className="timeline-node hidden md:block" aria-hidden="true" />
               <Card
-                className="bg-slate-900/50 border-cyan-500/30 p-8 backdrop-blur-sm hover:border-cyan-400/50 transition-all h-full"
+                className="bg-slate-900/50 border-cyan-500/30 p-6 backdrop-blur-sm hover:border-cyan-400/50 transition-all h-full"
               >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                 <div>
@@ -107,7 +107,7 @@ export function ExperienceSection() {
                 </div>
               </div>
 
-              <ul className="space-y-2 mb-6">
+              <ul className="space-y-2 mb-4">
                 {exp.achievements.map((achievement, i) => (
                   <li key={i} className="text-slate-300 flex items-start">
                     <span className="text-cyan-400 mr-2">▹</span>

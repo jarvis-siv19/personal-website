@@ -165,12 +165,12 @@ export function SkillsSection() {
   ]
 
   return (
-    <section id="skills" className="py-20 px-4 relative overflow-hidden">
+    <section id="skills" className="py-14 md:py-16 px-4 relative overflow-hidden scroll-mt-24">
       {/* Subtle background separation */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900/40 via-slate-950/60 to-slate-950 -z-10 pointer-events-none" />
 
       <div className="container mx-auto">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-10 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">Tech Stack</h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
             Technologies I use to design, build and deploy scalable applications
@@ -183,14 +183,14 @@ export function SkillsSection() {
             return (
               <Card
                 key={category.id}
-                className="group bg-slate-900/40 border-slate-800 p-8 backdrop-blur-sm 
+                className="group bg-slate-900/40 border-slate-800 p-6 backdrop-blur-sm 
                          hover:-translate-y-1.5 hover:shadow-xl hover:border-slate-700 
                          transition-all duration-300 relative overflow-hidden"
               >
                 {/* Top glow accent */}
                 <div className={cn("absolute top-0 left-0 w-full h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300", category.color.replace('text-', 'bg-'))} />
 
-                <div className="flex items-start gap-4 mb-8">
+                <div className="flex items-start gap-4 mb-6">
                   <div className={cn("p-3 rounded-xl bg-slate-950 border border-slate-800 group-hover:border-slate-700 transition-colors", category.color)}>
                     <Icon className="w-8 h-8" />
                   </div>

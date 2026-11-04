@@ -36,7 +36,7 @@ export function HeroSection({ projects }: { projects: Project[] }) {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden">
+    <section className="relative flex items-center pt-28 pb-16 md:pt-32 md:pb-20 px-4 overflow-hidden">
       {/* 3D / fallback backdrop */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         {enable3d ? (
@@ -48,8 +48,8 @@ export function HeroSection({ projects }: { projects: Project[] }) {
         <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_10%,transparent_35%,var(--background)_100%)]" />
       </div>
 
-      <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center relative">
-        <div className="space-y-6 animate-fade-in">
+      <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center relative">
+        <div className="space-y-5 animate-fade-in">
           <div className="space-y-2">
             <p className="text-cyan-400 text-lg font-mono">$ echo &quot;Hi, my name is&quot;</p>
             <h1 className="text-5xl md:text-7xl font-bold text-slate-100">Sivaganesh B</h1>
@@ -80,7 +80,7 @@ export function HeroSection({ projects }: { projects: Project[] }) {
             </Button>
           </div>
 
-          <div className="flex gap-4 pt-4">
+          <div className="flex gap-4 pt-2">
             <a
               href="https://github.com/sivab193"
               target="_blank"

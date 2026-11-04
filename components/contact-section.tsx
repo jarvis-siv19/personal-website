@@ -6,18 +6,18 @@ import { Mail, Linkedin, Github, MapPin, Instagram, Box } from "lucide-react"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20 px-4">
+    <section id="contact" className="py-14 md:py-16 px-4 scroll-mt-24">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-4xl font-bold text-center mb-4 text-slate-100">Get In Touch</h2>
-        <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-slate-400 mb-8 max-w-2xl mx-auto">
           Building Aayvu, MediaVerse, CloudClip, and SplitLLM. Feel free to reach out if
           you'd like to connect!
         </p>
 
         <div className="flex justify-center">
           <TiltCard className="w-full max-w-xl" max={4}>
-          <Card className="bg-slate-900/50 border-cyan-500/30 p-8 backdrop-blur-sm w-full">
-            <h3 className="text-2xl font-bold text-slate-100 mb-6">Contact Information</h3>
+          <Card className="bg-slate-900/50 border-cyan-500/30 p-6 backdrop-blur-sm w-full">
+            <h3 className="text-2xl font-bold text-slate-100 mb-4">Contact Information</h3>
 
             <div className="space-y-4">
               <div className="flex items-start gap-3">
